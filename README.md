@@ -43,38 +43,44 @@ In frontend, Users can filter NFTs and auctions by various attributes like **rar
 
 ## Smart Contract Functions
 
-The Aptos Move smart contract provides the following functions to interact with the NFT marketplace:
+The Aptos Move smart contract provides the following Feaures :
 
 1. **NFTMarketplace**: 
    - The main contract that holds the logic for marketplace functions.
   
-2. **auction_nft**: 
-   - Start an auction for a listed NFT.
+
   
-3. **bid_nft**: 
-   - Place a bid on an auctioned NFT.
-  
-4. **close_auction**: 
-   - Close an auction and finalize the sale of the NFT to the highest bidder.
-  
-5. **initialize**: 
+2. **initialize**: 
    - Initialize the marketplace with necessary data, such as fee structures.
   
-6. **list_for_sale**: 
+3. **list_for_sale**: 
    - List an NFT for sale with a fixed price.
   
-7. **mint_nft**: 
+3. **mint_nft**: 
    - Mint a new NFT.
   
-8. **purchase_nft**: 
+4. **purchase_nft**: 
    - Purchase an NFT listed for sale.
   
-9. **set_price**: 
+5. **set_price**: 
    - Set or update the price of an NFT.
   
-10. **transfer_ownership**: 
+6. **transfer_ownership**: 
     - Transfer ownership of an NFT from one user to another.
 
+**Additional Features**
+1. **auction_nft**: 
+   - Start an auction for a listed NFT.
+  
+1. **bid_nft**: 
+   - Place a bid on an auctioned NFT.
+  
+3. **close_auction**: 
+   - Close an auction and finalize the sale of the NFT to the highest bidder.
+
+4. **mint_nft**: 
+   - All users can Mint a new NFT .
+   
 ## Frontend Features
 
 The frontend, built with **React**, interacts with the Aptos blockchain through the smart contract. Key features include:
@@ -83,19 +89,24 @@ The frontend, built with **React**, interacts with the Aptos blockchain through 
   - Users can mint new NFTs by uploading metadata and connecting their wallet.
   
 - **NFT Filtering**: 
-  - Filter NFTs by **rarity**, **owner**, or other attributes. Users can also filter active auctions.
+  - Filter NFTs by **rarity** or other attributes.
   
 - **List for Sale**: 
   - List minted NFTs for sale with a set price, or list them for auction.
+
+
+- **Connect Wallet**: 
+  - Users can connect their Aptos wallet (e.g., Martian or Petra) to the frontend to interact   with the contract.
+
+**Additional Features**
+- **NFT Filtering**: 
+  - Filter NFTs by **owner**, or other attributes.
 
 - **Auction & Bidding**: 
   - Users can list NFTs for auction, place bids, and close auctions.
 
 - **Transfer NFTs**: 
   - Users can transfer ownership of NFTs to other wallet addresses.
-
-- **Connect Wallet**: 
-  - Users can connect their Aptos wallet (e.g., Martian or Petra) to the frontend to interact   with the contract.
 
 ## Setup
 
