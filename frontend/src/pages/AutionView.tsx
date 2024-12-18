@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Typography, Radio, message, Card, Row, Col, Pagination, Tag, Button, Modal, Input, Checkbox } from "antd";
 import { AptosClient } from "aptos";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
-
+import { BLOCKCHAIN_NETWORK } from "../utils";
 const { Title } = Typography;
 const { Meta } = Card;
 
-const client = new AptosClient("https://fullnode.devnet.aptoslabs.com/v1");
+const client = new AptosClient(BLOCKCHAIN_NETWORK);
 
 type AUCTION = {
   id: number;
@@ -208,11 +208,11 @@ const AutionView: React.FC<AutionViewProps> = ({ marketplaceAddr }) => {
       };
       const response = await (window as any).aptos.signAndSubmitTransaction(entryFunctionPayload);
       await client.waitForTransaction(response.hash);
-      message.success("NFT listed for sale successfully!");
+      message.success("NFT Auction closed successfully!");
       
     } catch (error) {
       console.log("error", error);
-      message.success("NFT listed for sale successfully!");
+      message.success("NFT  Auction close unsuccessful!");
     }
   }
 

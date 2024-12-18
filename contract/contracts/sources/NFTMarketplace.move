@@ -1,5 +1,5 @@
 // TODO# 1: Define Module and Marketplace Address
-address 0xc16b7266e73a8f899c0c8446d4e801f4ce7a17f4b013ef1a9baa08ce47087c23{
+address 0xc9f69bbb795a925da8e238a073230619cecb71463ba2ef96df5d1daabdb4a96c{
 
     module NFTMarketplace {
         use 0x1::signer;
@@ -95,7 +95,11 @@ address 0xc16b7266e73a8f899c0c8446d4e801f4ce7a17f4b013ef1a9baa08ce47087c23{
             assert!(nft_ref.owner == signer::address_of(account), 100);
 
             
-            // transfer to all remaining bidders
+            if(signer::address_of(account) == auction_ref.highest_bidder){
+                nft_ref.auctioned = false;
+                auction_ref.cancelled = true;
+            }else {
+                // transfer to all remaining bidders
             let ref = &mut borrow_global_mut<CoinAuction<aptos_coin::AptosCoin>>(auction_ref.highest_bidder).locked_coins;
             let coins = table::remove(ref, auction_ref.id);
 
@@ -126,6 +130,8 @@ address 0xc16b7266e73a8f899c0c8446d4e801f4ce7a17f4b013ef1a9baa08ce47087c23{
             auction_ref.cancelled = true;
             nft_ref.owner = auction_ref.highest_bidder;
             nft_ref.for_sale = false;
+            nft_ref.price = auction_ref.highest_bid;
+            }
         }
 
 

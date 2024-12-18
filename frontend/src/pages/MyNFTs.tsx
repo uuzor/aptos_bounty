@@ -3,14 +3,14 @@ import { Typography, Card, Row, Col, Pagination, message, Button, Input, Modal }
 import { AptosClient } from "aptos";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { AuctionNFT } from "../components/AuctionNFT";
-import { MARKETPLACE_ADDRESS } from "../utils";
+import { MARKETPLACE_ADDRESS, BLOCKCHAIN_NETWORK } from "../utils";
 import { TransferNFTModal } from "../components/TransferNFTModal";
 import { Link } from "react-router-dom";
 
 const { Title } = Typography;
 const { Meta } = Card;
 
-const client = new AptosClient("https://fullnode.devnet.aptoslabs.com/v1");
+const client = new AptosClient(BLOCKCHAIN_NETWORK);
 
 type NFT = {
   id: number;
@@ -230,6 +230,9 @@ const MyNFTs: React.FC = () => {
                 nft.auctioned ? <Link to={"/auctions"}>
                 Go to auction
               </Link>:
+              nft.for_sale ? <Link to={"/"}>
+              Go to MarketPlace
+              </Link>:
               <> <Button type="link" onClick={() => handleAuctionClick(nft)}>
                 Auction
               </Button>
@@ -248,6 +251,7 @@ const MyNFTs: React.FC = () => {
               <p>ID: {nft.id}</p>
               <p>{nft.description}</p>
               <p style={{ margin: "10px 0" }}>For Sale: {nft.for_sale ? "Yes" : "No"}</p>
+              <p style={{ margin: "10px 0" }}>For Auction: {nft.auctioned ? "Yes" : "No"}</p>
             </Card>
           </Col>
         ))}

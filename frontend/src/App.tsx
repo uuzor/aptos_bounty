@@ -10,9 +10,9 @@ import MyNFTs from "./pages/MyNFTs";
 import { AptosClient } from "aptos";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import AutionView from "./pages/AutionView";
-import { MARKETPLACE_ADDRESS } from "./utils";
+import { MARKETPLACE_ADDRESS , BLOCKCHAIN_NETWORK} from "./utils";
 
-const client = new AptosClient("https://fullnode.devnet.aptoslabs.com/v1");
+const client = new AptosClient(BLOCKCHAIN_NETWORK);
 const marketplaceAddr = MARKETPLACE_ADDRESS;
 
 function App() {

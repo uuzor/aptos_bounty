@@ -1,9 +1,9 @@
 import { Typography, Card, Row, Col, Pagination, message, Button, Input, Modal } from "antd";
 import { AptosClient } from "aptos";
 import { useState } from "react";
-import { MARKETPLACE_ADDRESS } from "../utils";
+import { BLOCKCHAIN_NETWORK, MARKETPLACE_ADDRESS } from "../utils";
 
-const client = new AptosClient("https://fullnode.devnet.aptoslabs.com/v1");
+const client = new AptosClient(BLOCKCHAIN_NETWORK);
 
 export function AuctionNFT({ selectedNft, setSelectedNft, fetchUserNFTs, isModalAuctionVisible, setIsModalAuctionVisible }: any) {
   const marketplaceAddr = MARKETPLACE_ADDRESS;

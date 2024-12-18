@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Typography, Radio, message, Card, Row, Col, Pagination, Tag, Button, Modal } from "antd";
 import { AptosClient } from "aptos";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
-import { MARKETPLACE_ADDRESS } from "../utils";
+import { MARKETPLACE_ADDRESS, BLOCKCHAIN_NETWORK } from "../utils";
 
 const { Title } = Typography;
 const { Meta } = Card;
 
-const client = new AptosClient("https://fullnode.devnet.aptoslabs.com/v1");
+const client = new AptosClient(BLOCKCHAIN_NETWORK);
 
 type NFT = {
   id: number;

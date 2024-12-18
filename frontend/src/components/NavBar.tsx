@@ -6,11 +6,13 @@ import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { AptosClient } from "aptos";
 import { AccountBookOutlined, DownOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { BLOCKCHAIN_NETWORK } from "../utils";
+
 
 const { Header } = Layout;
 const { Text } = Typography;
 
-const client = new AptosClient("https://fullnode.devnet.aptoslabs.com/v1");
+const client = new AptosClient(BLOCKCHAIN_NETWORK);
 
 interface NavBarProps {
   onMintNFTClick: () => void;
